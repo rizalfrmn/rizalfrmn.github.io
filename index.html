@@ -285,7 +285,7 @@ $$('[data-project-video]').forEach(card=>card.addEventListener('click',event=>{
  event.preventDefault();videoOpener=card;workPlayer.replaceChildren();
  $('#work-title').textContent=$('h3',card)?.textContent||'Selected Work';$('#work-source').href=card.dataset.videoOriginal||card.href;
  workModal.classList.toggle('portrait-video',card.dataset.videoPortrait==='true');
- workModal.classList.toggle('instagram-video',new URL(src).hostname==='www.instagram.com');
+ workModal.classList.toggle('instagram-video',url.hostname==='www.instagram.com');
  const ratio=Number(card.dataset.videoRatio);
  workModal.classList.toggle('ad-video',Number.isFinite(ratio)&&ratio>0);
  workModal.style.setProperty('--video-ratio',Number.isFinite(ratio)&&ratio>0?String(ratio):'1.77778');
