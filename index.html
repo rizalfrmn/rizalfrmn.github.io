@@ -280,7 +280,7 @@ const workModal=$('#work-modal'),workPlayer=$('#work-player');
 let videoOpener=null,videoTimer=0;
 $$('[data-project-video]').forEach(card=>card.addEventListener('click',event=>{
  if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
- const src=card.dataset.projectVideo;let url;try{url=new URL(src)}catch{return}if(url.protocol!=='https:')return;
+ const src=card.dataset.projectVideo;let url;try{url=new URL(src,location.href)}catch{return}if(url.protocol!=='https:')return;
  if(matchMedia('(max-width: 640px)').matches&&card.dataset.videoType!=='video'){window.open(card.dataset.videoOriginal||card.href,'_blank','noopener');return;}
  event.preventDefault();videoOpener=card;workPlayer.replaceChildren();
  $('#work-title').textContent=$('h3',card)?.textContent||'Selected Work';$('#work-source').href=card.dataset.videoOriginal||card.href;
